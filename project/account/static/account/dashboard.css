@@ -1,0 +1,232 @@
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f4f6fa;
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1f2937;
+    color: white;
+    padding: 15px 3px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.logo { font-weight: 600; }
+
+.menu-icon {
+    cursor: pointer;
+    font-size: 24px;
+    user-select: none;
+    background: transparent;
+    border: none;
+    color: white;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    z-index: 1100;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -260px; 
+    width: 260px;
+    height: 100vh;
+    background: #111827;
+    color: white;
+    box-shadow: -4px 0 12px rgba(0,0,0,0.3);
+    padding-top: 60px;
+    transition: right 0.25s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar.active { right: 0; }
+
+.sidebar a {
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+}
+
+.sidebar a:hover { background: rgba(255,255,255,0.04); }
+
+.main-content {
+    padding: 40px;
+    transition: margin-right 0.25s ease;
+    margin-right: 0;
+}
+
+.main-content.shifted { margin-right: 260px; }
+
+.comment-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.comment-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comment-container textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+.comment-container button {
+    width: 50%;
+    min-width: 120px;
+    padding: 10px;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.comment-container button:hover { background: #1e40af; }
+
+.comment-container table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.comment-container th,
+.comment-container td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.comment-container .button-group {
+    display: flex;
+    gap: 8px;
+}
+
+.comment-container .button-group a {
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.comment-container .button-group a.update-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+}
+
+.comment-container .button-group a.update-btn:hover { background: #1d4ed8; }
+
+.comment-container .button-group a.delete-btn {
+    background: #f3f4f6;
+    color: #111827;
+    border: 1px solid #ccc;
+}
+
+.comment-container .button-group a.delete-btn:hover {
+    background: #e5e7eb;
+    color: #1f2937;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 60px auto;
+    width: 50%;
+    background: #1f2937;
+    padding: 24px;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.edit-form textarea {
+    width: 100%;
+    min-height: 120px;
+    margin-bottom: 16px;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.edit-form button.update-btn {
+    flex: 1;
+    padding: 10px 16px;
+    background: #2563eb;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s ease;
+}
+
+.edit-form button.update-btn:hover { background: #1d4ed8; }
+
+.cancel-btn {
+    flex: 1;
+    display: inline-block;
+    padding: 10px 16px;
+    text-decoration: none;
+    text-align: center;
+    background: #f3f4f6;
+    color: #111827;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+
+.cancel-btn:hover {
+    background: #e5e7eb;
+    color: #1f2937;
+}
+
+@media (max-width: 480px) {
+    .sidebar { width: 220px; right: -220px; }
+    .sidebar.active { right: 0; }
+    .main-content.shifted { margin-right: 220px; }
+    .edit-form { width: 90%; }
+    .comment-container { width: 90%; }
+}

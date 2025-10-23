@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Comment</title>
+    <link rel="stylesheet" href="{% static 'account/dashboard.css' %}">
+</head>
+<body>
+    <div class="main-content">
+        <h2>Edit Comment</h2>
+        <form method="POST" class="edit-form">
+            {% csrf_token %}
+            <textarea name="comment">{{ comment.text }}</textarea>
+            <div class="button-group">
+                <button type="submit" class="update-btn">Update</button>
+                <a href="{% url 'dashboard' %}" class="cancel-btn">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
